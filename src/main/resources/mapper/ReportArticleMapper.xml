@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ReportArticleMapper">
+    <resultMap id="reportArticle" type="ReportArticle">
+        <result column="articlecover" property="articleDate"/>
+    </resultMap>
+    <select id="getall" resultType="ReportArticle" resultMap="reportArticle">
+        select * from reportarticle order by id
+    </select>
+
+    <insert id="add" parameterType="ReportArticle">
+        insert into reportarticle(title,uid,content,articlecover) values (#{title},#{uid},#{content},#{articleDate});
+    </insert>
+
+    <delete id="delete" parameterType="Integer">
+        delete
+        from reportarticle
+        where id = #{id};
+    </delete>
+</mapper>

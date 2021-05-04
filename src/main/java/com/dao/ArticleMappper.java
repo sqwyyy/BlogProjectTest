@@ -26,6 +26,8 @@ public interface ArticleMappper {
 
     public List<Article> getall(@Param("uid")int uid);
 
+    public List<Article>all();
+
     public List<Article> getbyabstract(Article article);
 
 }

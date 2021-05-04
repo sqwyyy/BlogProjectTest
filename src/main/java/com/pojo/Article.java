@@ -29,5 +29,9 @@ public class Article {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
     private Date articleDate;
 
+    public Article(Integer uid, String title){
+        this.uid = uid;
+        this.title = title;
+    }
 
 }

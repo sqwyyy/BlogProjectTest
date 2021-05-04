@@ -8,6 +8,7 @@
         <result column="content_md" property="contentMd"/>
         <result column="abstract" property="Abstract"/>
         <result column="articlecover" property="articleDate"/>
+        <result column="cover" property="cover"/>
         <result column="uid" property="uid"/>
     </resultMap>
 
@@ -23,12 +24,16 @@
           select <include refid="Base_Column_List" /> from article where uid=#{uid} order by id
     </select>
 
+    <select id="all" resultType="Article" resultMap="article" parameterType="int">
+        select <include refid="Base_Column_List" /> from article order by id
+    </select>
+
     <select id="getbyabstract" resultType="Article" parameterType="Article" resultMap="article">
         SELECT * FROM article WHERE uid = #{uid} AND abstract = #{Abstract}
     </select>
 
     <select id="getArticlebytitle" resultType="Article" parameterType="Article" resultMap="article">
-        select * from article where title = #{title} and uid=#{uid};
+        select * from article where title = #{title} and uid=#{uid}
     </select>
 
     <insert id="Addarticle" parameterType="Article">

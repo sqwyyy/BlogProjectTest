@@ -58,11 +58,27 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
     public KeyGenerator keyGenerator() {
         //  设置自动key的生成规则，配置spring boot的注解，进行方法级别的缓存,使用：进行分割，可以很多显示出层级关系
         // 这里其实就是new了一个KeyGenerator对象，只是这是lambda表达式的写法，我感觉很好用，大家感兴趣可以去了解下
-        return (target, method, params) -> {
+        /*return (target, method, params) -> {
             StringBuilder sb = new StringBuilder();
             sb.append(target.getClass().getName());
             sb.append(":");
             sb.append(method.getName());
+            for (Object obj : params) {
+                sb.append(":" + String.valueOf(obj));
+            }
+            String rsToUse = String.valueOf(sb);
+            //System.out.println("调用Redis缓存Key : " + rsToUse);
+            return rsToUse;
+        };
+
+         */
+        return (target, method, params) -> {
+            StringBuilder sb = new StringBuilder();
+            /*sb.append(target.getClass().getName());
+            sb.append(":");
+            sb.append(method.getName());
+
+             */
             for (Object obj : params) {
                 sb.append(":" + String.valueOf(obj));
             }

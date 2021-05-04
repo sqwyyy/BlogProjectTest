@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.ReportMapper">
+    <resultMap id="Report" type="Report">
+        <result column="articlecover" property="articleDate"/>
+    </resultMap>
+
+    <select id="getAllReport" resultType="Report">
+        select * from report;
+    </select>
+
+    <insert id="addReport" parameterType="ReportArticle">
+        insert into report(content,articlecover,Aid) values (#{content},#{articleDate},#{Aid});
+    </insert>
+
+    <select id="findbyContent" resultType="Report" parameterType="String">
+        select * form report where content = #{content};
+    </select>
+
+    <select id="findNum" resultType="Integer">
+        SELECT COUNT(*) FROM report
+        where Aid = #{Aid};
+    </select>
+
+    <delete id="deleteByContent" parameterType="String">
+        delete
+        from report
+        where content = #{content};
+    </delete>
+
+</mapper>

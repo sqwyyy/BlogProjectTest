@@ -4,15 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 /**
- * @date 2020/4/20 - 13:11
+ * @date 2021/4/20 - 22:31
  */
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class paging<T> {
-    List<T>content;
-    Long totalElements;
+public class ArtcileKeyWords {
+    private Article article;
+    private Double cos;
 }

@@ -31,7 +31,7 @@ public class UserService {
 
     @Cacheable
     public User findUserById(int id){
-        //System.out.println("未进入缓存");
+        System.out.println("未进入缓存");
         return userMapper.findUserbyId(id);
     }
 
@@ -73,7 +73,7 @@ public class UserService {
     }
 
     public void UpdateUser(User userdao){
-        System.out.println(userdao.toString());
+        //System.out.println(userdao.toString());
         userMapper.update(userdao);
     }
 
